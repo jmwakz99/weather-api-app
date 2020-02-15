@@ -1,11 +1,13 @@
 <template>
   <b-container>
     <b-row>
-      <b-col xs="12" sm="6" class="mx-auto text-center bg-primary mt-5 p-5">
-        <h1 id="w-location" class="text-light">{{location.city}}, {{location.state}}</h1>
-        <h3 class="text-dark" id="w-desc">{{locationWeatherData.description}}</h3>
+      <b-col xs="12" sm="12" md="6" class="mx-auto text-center bg-primary mt-5 p-5">
+        <h1
+          id="w-location"
+          class="text-light"
+        >{{location.city | capitalize}}, {{location.state | capitalize}}</h1>
+        <h3 class="text-dark" id="w-desc">{{locationWeatherData.description | capitalize }}</h3>
         <h3 id="w-string" class="text-light">{{ locationWeatherData.temp }} F ({{fahrenheitTemp}} C)</h3>
-
         <b-img id="w-icon" :src="locationWeatherData.iconUrl"></b-img>
         <b-list-group id="w-details" class="mt-3">
           <b-list-group-item id="w-humidity">Relative Humidity: {{locationWeatherData.humidity}}</b-list-group-item>
@@ -21,7 +23,6 @@
     </b-row>
   </b-container>
 </template>
-
 <script>
 import Modal from "./Modal.vue";
 export default {
@@ -44,10 +45,13 @@ export default {
       let fahrenheit = this.locationWeatherData.feelsLike;
       return Math.floor((fahrenheit - 32) / 1.8);
     }
+  },
+
+  updated() {
+    this.$store.dispatch("getWeather");
   }
 };
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {

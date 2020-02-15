@@ -29,7 +29,6 @@
     </b-modal>
   </div>
 </template>
-
 <script>
 export default {
   name: "Modal",
@@ -39,7 +38,7 @@ export default {
       state: "",
       cityState: "",
       stateState: "",
-      submittedLocation: []
+      submittedLocation: {}
     };
   },
   methods: {
@@ -68,11 +67,11 @@ export default {
         return;
       }
       // Push the city and state to submitted location
-      this.submittedLocation.push({ city: this.city, state: this.state });
-      let location = this.submittedLocation[0];
-      this.$store.dispatch("changeLocation", location);
+      this.submittedLocation.city = this.city;
+      this.submittedLocation.state = this.state;
 
-      console.log(this.submittedLocation[0].city);
+      this.$store.dispatch("changeLocation", this.submittedLocation);
+
       // Hide the modal manually
       this.$nextTick(() => {
         this.$bvModal.hide("locModal");
