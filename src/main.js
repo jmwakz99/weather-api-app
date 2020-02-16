@@ -5,6 +5,7 @@ import store from './store'
 import { BootstrapVue } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Loading from './components/Loading'
 
 
 
@@ -15,6 +16,7 @@ Vue.filter('capitalize', (value) => {
     return value.charAt(0).toUpperCase() + value.slice(1)
 
 })
+Vue.component('Spinner', Loading)
 
 new Vue({
     router,

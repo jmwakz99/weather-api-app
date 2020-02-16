@@ -1,6 +1,11 @@
 <template>
   <b-container>
-    <b-row>
+    <b-row v-if="loading">
+      <b-col xs="12" sm="12" md="6" class="mx-auto text-center mt-5 p-5">
+        <Spinner />
+      </b-col>
+    </b-row>
+    <b-row v-else>
       <b-col xs="12" sm="12" md="6" class="mx-auto text-center bg-primary mt-5 p-5">
         <h1
           id="w-location"
@@ -33,6 +38,9 @@ export default {
   computed: {
     locationWeatherData() {
       return this.$store.getters.locationWeatherData;
+    },
+    loading() {
+      return this.$store.getters.loading;
     },
     location() {
       return this.$store.getters.location;
