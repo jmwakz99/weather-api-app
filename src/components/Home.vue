@@ -45,10 +45,6 @@ export default {
       let fahrenheit = this.locationWeatherData.feelsLike;
       return Math.floor((fahrenheit - 32) / 1.8);
     }
-  },
-
-  updated() {
-    this.$store.dispatch("getWeather");
   }
 };
 </script>

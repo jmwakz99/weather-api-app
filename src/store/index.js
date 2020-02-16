@@ -26,12 +26,7 @@ export default new Vuex.Store({
             state.location.state = payload.state
         },
         setWeather(state, payload) {
-            state.locationWeatherData.iconUrl = payload.iconUrl
-            state.locationWeatherData.humidity = payload.humidity
-            state.locationWeatherData.feelsLike = payload.feelsLike
-            state.locationWeatherData.windSpeed = payload.windSpeed
-            state.locationWeatherData.description = payload.description
-            state.locationWeatherData.temp = payload.temp
+            state.locationWeatherData = payload
         },
         setLoading(state, payload) {
             state.loading = payload

@@ -71,9 +71,9 @@ export default {
       this.submittedLocation.state = this.state;
 
       this.$store.dispatch("changeLocation", this.submittedLocation);
-
       // Hide the modal manually
       this.$nextTick(() => {
+        this.$store.dispatch("getWeather");
         this.$bvModal.hide("locModal");
       });
     }
