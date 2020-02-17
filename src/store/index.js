@@ -33,11 +33,8 @@ export default new Vuex.Store({
         },
         setLoading(state, payload) {
             state.loading = payload
-        },
-        setLoading(state, payload) {
-            state.loading = payload
-
         }
+
 
     },
     actions: {
